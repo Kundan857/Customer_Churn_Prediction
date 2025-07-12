@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Churn Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='form.css') }}">
+</head>
+
+<script>
+  // Auto scroll to result if it's visible
+  window.onload = function () {
+    const resultBox = document.getElementById('result');
+    if (resultBox) {
+      resultBox.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+</script>
+
+<body>
+  <div class="form-container">
+    <a href="/" class="back-button">←</a>
+    <h2>🔍 Customer Churn Prediction</h2>
+
+    <form action="/predict" method="POST">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Gender:</label>
+          <select name="gender"><option>Male</option><option>Female</option></select>
+        </div>
+
+        <div class="form-group">
+          <label>Senior Citizen:</label>
+          <select name="SeniorCitizen"><option value="0">No</option><option value="1">Yes</option></select>
+        </div>
+
+        <div class="form-group">
+          <label>Partner:</label>
+          <select name="Partner"><option>Yes</option><option>No</option></select>
+        </div>
+
+        <div class="form-group">
+          <label>Dependents:</label>
+          <select name="Dependents"><option>Yes</option><option>No</option></select>
+        </div>
+
+        <div class="form-group">
+          <label>Tenure (in months):</label>
+          <input type="number" name="tenure" required>
+        </div>
+
+        <div class="form-group">
+          <label>Online Security:</label>
+          <select name="OnlineSecurity"><option>Yes</option><option>No</option></select>
+        </div>
+
+        <div class="form-group">
+          <label>Internet Service:</label>
+          <select name="InternetService"><option>DSL</option><option>Fiber optic</option><option>No</option></select>
+        </div>
+
+        <div class="form-group">
+          <label>Device Protection:</label>
+          <select name="DeviceProtection"><option>Yes</option><option>No</option></select>
+        </div>
+
+        <div class="form-group">
+          <label>Tech Support:</label>
+          <select name="TechSupport"><option>Yes</option><option>No</option></select>
+        </div>
+
+        <div class="form-group">
+          <label>Streaming TV:</label>
+          <select name="StreamingTV"><option>Yes</option><option>No</option></select>
+        </div>
+
+        <div class="form-group">
+          <label>Streaming Movies:</label>
+          <select name="StreamingMovies"><option>Yes</option><option>No</option></select>
+        </div>
+
+        <div class="form-group">
+          <label>Contract:</label>
+          <select name="Contract"><option>Month-to-month</option><option>One year</option><option>Two year</option></select>
+        </div>
+
+        <div class="form-group">
+          <label>Payment Method:</label>
+          <select name="PaymentMethod">
+            <option>Electronic check</option>
+            <option>Mailed check</option>
+            <option>Bank transfer (automatic)</option>
+            <option>Credit card (automatic)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Paperless Billing:</label>
+          <select name="PaperlessBilling"><option>Yes</option><option>No</option></select>
+        </div>
+
+        <div class="form-group">
+          <label>Monthly Charges:</label>
+          <input type="number" name="MonthlyCharges" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+          <label>Total Charges:</label>
+          <input type="number" name="TotalCharges" step="0.01" required>
+        </div>
+      </div>
+
+      <button type="submit">Predict Now</button>
+    </form>
+
+    {% if result %}
+<div class="result-box" id="result">{{ result }}</div>
+{% endif %}
+
+  </div>
+</body>
+</html>

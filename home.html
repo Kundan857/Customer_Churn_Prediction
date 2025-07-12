@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Churn Prediction</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
+<!--  <link rel="stylesheet" href="home.css">-->
+</head>
+<body>
+  <div class="main-container">
+    <div class="left">
+      <p class="ml-tag">MACHINE LEARNING</p>
+      <h1 class="title">
+        <span class="gradient">CUSTOMER CHURN</span><br>
+        <span class="gradient">PREDICTION</span>
+      </h1>
+     <a href="{{ url_for('form') }}">
+  <button class="predict-btn">CLICK HERE TO PREDICT</button>
+</a>
+
+    </div>
+    <div class="right">
+     <img src="{{ url_for('static', filename='img1.png') }}" class="bottom-img">
+        <img src="{{ url_for('static', filename='img2.png') }}" class="top-img">
+
+    </div>
+  </div>
+</body>
+</html>
